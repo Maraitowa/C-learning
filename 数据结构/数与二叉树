@@ -1,0 +1,50 @@
+### 1. 二叉树的存储结构
+#### 1.1 顺序存储结构
+#### 1.2 链式存储结构
+```
+typedef struct BTNode
+{
+    char data;  //数据域
+
+    struct BTNode *lchild;      //左指针域
+    struct BTNode *rchild;      //右指针域
+}BTNode                                                                    
+```
+### 2. 二叉树的遍历算法
+#### 2.1 先序遍历
+```
+void preorder(BTNode *p)
+{
+    if (p!=NULL)
+    {
+        Visit(p);   //假设访问函数Visit()已经定义过，其中包含了对
+                    //节点p的各种访问操作，如可以打印出p对应的数值
+        preorder(p->lchild);    //先序遍历左子树
+        preorder(p->rchild);    //先序遍历右子树
+    }
+}
+```
+#### 2.2 中序遍历
+```
+void inorder(BTNode *p)
+{
+    if (p!=NULL)
+    {
+        inorder(p->lchild);
+        Visit(p);
+        inorder(p->rchild);
+    }
+}
+```
+#### 2.3 后序遍历
+```
+void posorder(BTNode *p)
+{
+    if (p!=NULL)
+    {
+        posorder(p->lchild);
+        posorder(p->rchild);
+        Visit(p);
+    }
+}
+```
